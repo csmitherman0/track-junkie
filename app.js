@@ -64,7 +64,7 @@ app.get('/tracks/new', catchAsync((req, res) => {
 }));
 
 app.post('/tracks', validateTrack, catchAsync(async (req, res, next) => {
-    // if (!req.body.track) throw new ExpressError('Invalid Campground Data', 400);
+    // if (!req.body.track) throw new ExpressError('Invalid Track Data', 400);
 
     const track = new Track(req.body.track);
     await track.save();
