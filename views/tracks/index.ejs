@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate') %>
+
+    <h1 class="text-center mt-5">
+        All Tracks
+    </h1>
+
+    <a href="/tracks/new">
+        <button class="btn btn-primary">
+            New Track
+        </button>
+    </a>
+
+    <div class="accordion" id="album-accordion">
+        <% for (let i=0; i < tracks.length; i++) { %>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading<%=i%>"><button class="accordion-button" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#collapse<%=i%>" aria-expanded="false"
+                        aria-controls="collapse<%=i%>">
+
+                        <%= i + 1 %>: <%=tracks[i].title%> by <%= tracks[i].artist || 'Unknown' %>
+                    </button></h2>
+                <div class="accordion-collapse collapse" id="collapse<%=i%>" aria-labelledby="heading<%=i%>"
+                    data-bs-parent="#album-accordion">
+                    <div class="accordion-body">
+                        <img src="<%=tracks[i].image%>" alt="">
+                        <video controls="" name="media">
+                            <!-- <source src="<%=tracks[i].source%>" type="audio/mpeg"> -->
+                        </video>
+                        <a href="/tracks/<%=tracks[i]._id%>">Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+    </div>

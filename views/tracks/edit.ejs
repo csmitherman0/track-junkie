@@ -1,0 +1,59 @@
+<% layout('layouts/boilerplate')%>
+    <div class="row">
+        <h1 class="text-center">Edit Track</h1>
+        <div class="col-6 offset-3">
+            <form action="/tracks/<%=track._id%>?_method=PUT" method="POST" novalidate class="validated-form">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="track[title]" value="<%=track.title %>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="artist">Artist</label>
+                    <input class="form-control" type="text" id="artist" name="track[artist]" value="<%=track.artist %>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <img src="<%= track.image %>" alt="">
+
+                <div class="mb-3">
+                    <label class="form-label" for="image">Image Url</label>
+                    <input class="form-control" type="text" id="image" name="track[image]" value="<%=track.image %>"
+                        required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="length">Track Length (Seconds)</label>
+                    <input class="form-control" type="number" id="length" name="track[length]"
+                        value="<%=track.length %>" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="track[description]"
+                        required><%= track.description%></textarea>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-info">Update Track</button>
+                </div>
+            </form>
+            <a href="/tracks/<%= track._id%>">Back To Track</a>
+
+        </div>
+    </div>

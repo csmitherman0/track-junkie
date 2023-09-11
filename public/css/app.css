@@ -1,0 +1,10 @@
+.alert {
+    overflow-x: scroll;
+}
+
+.accordion-body img {
+    vertical-align: bottom;
+    height: 200px;
+    width: 200px;
+    object-fit: scale-down;
+}
